@@ -11,474 +11,430 @@
 </head>
 
 <body>
-<!--===========================
-background q ojala funcione 
-===============================-->
-<!-- From Uiverse.io by AatreyuShau --> 
+
+<!-- =========================
+     BACKGROUND
+========================= -->
+
 <div class="island"></div>
 <div class="islandt"></div>
 <div class="hatch"></div>
 
 <svg height="0" width="0">
-  <filter id="octave1">
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.0004"
-      numOctaves="8"
-      seed="4"
-      result="o1"
-    ></feTurbulence>
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.0008"
-      numOctaves="8"
-      seed="4"
-      result="o2"
-    ></feTurbulence>
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.0001"
-      numOctaves="8"
-      seed="4"
-      result="o3"
-    ></feTurbulence>
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.0018"
-      numOctaves="8"
-      seed="4"
-      result="o4"
-    ></feTurbulence>
+    <filter id="octave1">
+        <feTurbulence type="fractalNoise" baseFrequency="0.0004" numOctaves="8" seed="4" result="o1"></feTurbulence>
+        <feTurbulence type="fractalNoise" baseFrequency="0.0008" numOctaves="8" seed="4" result="o2"></feTurbulence>
+        <feTurbulence type="fractalNoise" baseFrequency="0.0001" numOctaves="8" seed="4" result="o3"></feTurbulence>
+        <feTurbulence type="fractalNoise" baseFrequency="0.0018" numOctaves="8" seed="4" result="o4"></feTurbulence>
 
-    <feMerge result="finalIsland">
-      <feMergeNode in="o1"></feMergeNode>
-      <feMergeNode in="o3"></feMergeNode>
-      <feMergeNode in="o1"></feMergeNode>
-      <feMergeNode in="o3"></feMergeNode>
-    </feMerge>
+        <feMerge result="finalIsland">
+            <feMergeNode in="o1"></feMergeNode>
+            <feMergeNode in="o3"></feMergeNode>
+            <feMergeNode in="o1"></feMergeNode>
+            <feMergeNode in="o3"></feMergeNode>
+        </feMerge>
 
-    <feGaussianBlur
-      in="finalIsland"
-      stdDeviation="5"
-      result="noiseo"
-    ></feGaussianBlur>
+        <feGaussianBlur in="finalIsland" stdDeviation="5" result="noiseo"></feGaussianBlur>
 
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.0008"
-      numOctaves="8"
-      seed="4"
-      result="o1"
-    ></feTurbulence>
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.0016"
-      numOctaves="8"
-      seed="4"
-      result="o2"
-    ></feTurbulence>
+        <feMerge result="noiseo">
+            <feMergeNode in="o2"></feMergeNode>
+            <feMergeNode in="o4"></feMergeNode>
+            <feMergeNode in="noiseo"></feMergeNode>
+        </feMerge>
 
-    <feMerge result="noiseo">
-      <feMergeNode in="o2"></feMergeNode>
-      <feMergeNode in="o4"></feMergeNode>
-      <feMergeNode in="noiseo"></feMergeNode>
-    </feMerge>
+        <feGaussianBlur in="noiseo" stdDeviation="5" result="noiseo"></feGaussianBlur>
 
-    <feGaussianBlur
-      in="noiseo"
-      stdDeviation="5"
-      result="noiseo"
-    ></feGaussianBlur>
+        <feMerge result="noiseo">
+            <feMergeNode in="o1"></feMergeNode>
+            <feMergeNode in="o1"></feMergeNode>
+            <feMergeNode in="noiseo"></feMergeNode>
+        </feMerge>
 
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.0016"
-      numOctaves="8"
-      seed="4"
-      result="o1"
-    ></feTurbulence>
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.002"
-      numOctaves="8"
-      seed="4"
-      result="o2"
-    ></feTurbulence>
+        <feGaussianBlur in="noiseo" stdDeviation="5" result="noiseo"></feGaussianBlur>
 
-    <feMerge result="noiseo">
-      <feMergeNode in="o1"></feMergeNode>
-      <feMergeNode in="o1"></feMergeNode>
-      <feMergeNode in="noiseo"></feMergeNode>
-    </feMerge>
+        <feDiffuseLighting in="noiseo" surfaceScale="12" diffuseConstant="1" lighting-color="#d7bb98" result="lit">
+            <feDistantLight azimuth="90" elevation=""></feDistantLight>
+        </feDiffuseLighting>
 
-    <feGaussianBlur
-      in="noiseo"
-      stdDeviation="5"
-      result="noiseo"
-    ></feGaussianBlur>
+        <feBlend in="lit" in2="SourceGraphic" mode="normal"></feBlend>
+    </filter>
 
-    <feDiffuseLighting
-      in="noiseo"
-      surfaceScale="12"
-      diffuseConstant="1"
-      lighting-color="#d7bb98"
-      result="lit"
-    >
-      <feDistantLight azimuth="90" elevation=""></feDistantLight>
-    </feDiffuseLighting>
+    <filter id="octave2">
+        <feTurbulence type="fractalNoise" baseFrequency="0.0004" numOctaves="8" seed="4" result="o1"></feTurbulence>
+        <feTurbulence type="fractalNoise" baseFrequency="0.0008" numOctaves="8" seed="4" result="o2"></feTurbulence>
+        <feTurbulence type="fractalNoise" baseFrequency="0.0001" numOctaves="8" seed="4" result="o3"></feTurbulence>
+        <feTurbulence type="fractalNoise" baseFrequency="0.0018" numOctaves="8" seed="4" result="o4"></feTurbulence>
 
-    <feBlend in="lit" in2="SourceGraphic" mode="normal"></feBlend>
-  </filter>
+        <feMerge result="finalIsland">
+            <feMergeNode in="o1"></feMergeNode>
+            <feMergeNode in="o3"></feMergeNode>
+            <feMergeNode in="o1"></feMergeNode>
+            <feMergeNode in="o3"></feMergeNode>
+        </feMerge>
 
-  <filter id="octave2">
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.0004"
-      numOctaves="8"
-      seed="4"
-      result="o1"
-    ></feTurbulence>
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.0008"
-      numOctaves="8"
-      seed="4"
-      result="o2"
-    ></feTurbulence>
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.0001"
-      numOctaves="8"
-      seed="4"
-      result="o3"
-    ></feTurbulence>
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.0018"
-      numOctaves="8"
-      seed="4"
-      result="o4"
-    ></feTurbulence>
+        <feGaussianBlur in="finalIsland" stdDeviation="5" result="noiseo"></feGaussianBlur>
 
-    <feMerge result="finalIsland">
-      <feMergeNode in="o1"></feMergeNode>
-      <feMergeNode in="o3"></feMergeNode>
-      <feMergeNode in="o1"></feMergeNode>
-      <feMergeNode in="o3"></feMergeNode>
-    </feMerge>
+        <feMerge result="noiseo">
+            <feMergeNode in="o2"></feMergeNode>
+            <feMergeNode in="o4"></feMergeNode>
+            <feMergeNode in="noiseo"></feMergeNode>
+        </feMerge>
 
-    <feGaussianBlur
-      in="finalIsland"
-      stdDeviation="5"
-      result="noiseo"
-    ></feGaussianBlur>
+        <feGaussianBlur in="noiseo" stdDeviation="5" result="noiseo"></feGaussianBlur>
 
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.0008"
-      numOctaves="8"
-      seed="4"
-      result="o1"
-    ></feTurbulence>
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.0016"
-      numOctaves="8"
-      seed="4"
-      result="o2"
-    ></feTurbulence>
+        <feMerge result="noiseo">
+            <feMergeNode in="o1"></feMergeNode>
+            <feMergeNode in="o1"></feMergeNode>
+            <feMergeNode in="noiseo"></feMergeNode>
+        </feMerge>
 
-    <feMerge result="noiseo">
-      <feMergeNode in="o2"></feMergeNode>
-      <feMergeNode in="o4"></feMergeNode>
-      <feMergeNode in="noiseo"></feMergeNode>
-    </feMerge>
+        <feGaussianBlur in="noiseo" stdDeviation="5" result="noiseo"></feGaussianBlur>
 
-    <feGaussianBlur
-      in="noiseo"
-      stdDeviation="5"
-      result="noiseo"
-    ></feGaussianBlur>
+        <feDiffuseLighting in="noiseo" surfaceScale="12" diffuseConstant="1" lighting-color="#d1bf96" result="lit">
+            <feDistantLight azimuth="-90" elevation=""></feDistantLight>
+        </feDiffuseLighting>
 
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.0016"
-      numOctaves="8"
-      seed="4"
-      result="o1"
-    ></feTurbulence>
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.002"
-      numOctaves="8"
-      seed="4"
-      result="o2"
-    ></feTurbulence>
-
-    <feMerge result="noiseo">
-      <feMergeNode in="o1"></feMergeNode>
-      <feMergeNode in="o1"></feMergeNode>
-      <feMergeNode in="noiseo"></feMergeNode>
-    </feMerge>
-
-    <feGaussianBlur
-      in="noiseo"
-      stdDeviation="5"
-      result="noiseo"
-    ></feGaussianBlur>
-
-    <feDiffuseLighting
-      in="noiseo"
-      surfaceScale="12"
-      diffuseConstant="1"
-      lighting-color="#d1bf96"
-      result="lit"
-    >
-      <feDistantLight azimuth="-90" elevation=""></feDistantLight>
-    </feDiffuseLighting>
-
-    <feBlend in="lit" in2="SourceGraphic" mode="normal"></feBlend>
-  </filter>
+        <feBlend in="lit" in2="SourceGraphic" mode="normal"></feBlend>
+    </filter>
 </svg>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+<!-- =========================
+     HEADER
+========================= -->
 
-    <header>
-        <div class="logo">
-            PORTAFOLIO
-        </div>
-    </header>
+<header>
+    <div class="logo">PORTAFOLIO</div>
+</header>
 
+<!-- =========================
+     HERO
+========================= -->
 
-    <!-- =========================
-         HERO
-    ========================== -->
+<main>
 
-    <main>
+    <section id="home" class="contenido">
 
-        <section id="home" class="contenido">
+        <img src="img/perfil.png" alt="Foto de perfil">
 
-    <img src="img/perfil.png" alt="Foto de perfil">
+        <div class="hero-text">
 
-    <div class="hero-text">
-
-        <h1>Soy Cristian David Lemus Ovalle</h1>
-
-        <p>
-            Estudiante de Desarrollo de Software
-            <br>
-            y desarollador web en formación.
-        </p>
-
-        <a href="#contacto">
-            <button>Un vistazo mejor a mi perfil</button>
-        </a>
-
-    </div>
-
-</section>
-
-        <!-- =========================
-             Sobre mi 
-        ========================== -->
-
-        <section id="sobremi" class="sobremi">
-
-            <div class="sobremi-image">
-
-                <img src="img/perfil.png" alt="Foto de perfil">
-
-            </div>
-
-
-            <div class="sobremi-content">
-
-                <h2>Sobre mi</h2>
-
-                <p>
-                    Soy un estudiante de ADSO en proceso de formacion, con grandes metas en la industria desarrolladora.
-                    Tengo 18 años y muchas ganas de descubrir un mundo superior para lograr mis sueños
-                </p>
-
-                <p>
-                    Me considero una persona responsable, con gran capacidad de aprendizaje y con muchas ganas de crecer en el mundo del desarrollo web.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             Proyectos
-        ========================== -->
-
-        <section id="proyectos" class="proyectos">
-
-            <div class="section-header">
-
-                <h2>Proyectos</h2>
-
-                <p>
-                    Los proyectos creados por mi en la formacion del curso de ADSO, con el fin de aprender y mejorar mis habilidades en el desarrollo web.
-                </p>
-
-            </div>
-
-
-            <div class="proyectos-grid">
-
-
-                <!-- =========================
-                     PROYECTO 1
-                ========================== -->
-
-                <article class="carta salvatore">
-
-                    <h3>Proyecto "Salvatore"</h3>
-
-                    <p>
-                        Un sistema de gestion de notas para una institucion educativa 
-                    </p>
-
-
-                    <div class="carta__content">
-
-                        <h3 class="carta__title">
-                            Salvatore
-                        </h3>
-
-                        <p class="carta__description">
-                            Ayudamos a mejorar la experiencia de los estudiantes y docentes en la gestion de notas, con un sistema intuitivo y eficiente.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =========================
-                     PROYECTO 2
-                ========================== -->
-
-                <article class="carta calculadora">
-
-                    <h3>Proyecto "Calculadora"</h3>
-
-                    <p>
-                        Un sistema simple sobre una calculadora, para poder aprender mejor las estructuras de un proyecto web y su funcionamiento.
-                    </p>
-
-
-                    <div class="carta__content">
-
-                        <h3 class="carta__title">
-                            Calculadora
-                        </h3>
-
-                        <p class="carta__description">
-                            Con este proyecto aprendimos a crear la estructura necesaria para que un sistema funcione correctamente
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =========================
-                     PROYECTO 3
-                ========================== -->
-
-                <article class="carta relleno">
-
-                    <h3>Proyecto "Relleno"</h3>
-
-                    <p>
-                        No hay mas proyectos creados, pero en un futuro se crearan mas proyectos para poder mejorar mis habilidades y conocimientos en el desarrollo web.
-                    </p>
-
-
-                    <div class="carta__content">
-
-                        <h3 class="carta__title">
-                            Relleno
-                        </h3>
-
-                        <p class="carta__description">
-                            No hay mas proyectos creados, pero en un futuro se crearan mas proyectos para poder mejorar mis habilidades y conocimientos en el desarrollo web.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =========================
-                     PROYECTO 4
-                ========================== -->
-
-                <article class="carta relleno-2">
-
-                    <h3>Proyecto "Relleno 2"</h3>
-
-                    <p>
-                        No hay mas proyectos creados, pero en un futuro se crearan mas proyectos para poder mejorar mis habilidades y conocimientos en el desarrollo web.
-                    </p>
-
-
-                    <div class="carta__content">
-
-                        <h3 class="carta__title">
-                            Relleno 2
-                        </h3>
-
-                        <p class="carta__description">
-                            No hay mas proyectos creados, pero en un futuro se crearan mas proyectos para poder mejorar mis habilidades y conocimientos en el desarrollo web.
-                        </p>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             CONTACT
-        ========================== -->
-
-        <section id="contacto" class="contacto">
-
-            <h2>Contact</h2>
+            <h1>Soy Cristian David Lemus Ovalle</h1>
 
             <p>
-                ¿Tienes un proyecto en mente? Hablemos.
+                Estudiante de Desarrollo de Software
+                <br>
+                y desarrollador web en formación.
             </p>
 
-                <!-- From Uiverse.io by gharsh11032000 --> 
-<button class="animated-button">
-  <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-    ></path>
-  </svg>
-  <span class="text">Contactame</span>
-  <span class="circle"></span>
-  <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-    ></path>
-  </svg>
-</button>
+            <a href="#contacto" class="hero-button">
+                <button class="animated-button">
+                    <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                    </svg>
 
-        </section>
+                    <span class="text">Un vistazo mejor a mi perfil</span>
 
-    </main>
+                    <span class="circle"></span>
+
+                    <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                    </svg>
+                </button>
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         SOBRE MI
+    ========================== -->
+
+    <section id="sobremi" class="sobremi">
+
+        <div class="sobremi-image">
+            <img src="img/perfil.png" alt="Foto de perfil">
+        </div>
+
+        <div class="sobremi-content">
+
+            <h2>Sobre mi</h2>
+
+            <p>
+                Soy un estudiante de ADSO en proceso de formación, con grandes metas en la industria desarrolladora.
+                Tengo 18 años y muchas ganas de descubrir un mundo superior para lograr mis sueños.
+            </p>
+
+            <p>
+                Me considero una persona responsable, con gran capacidad de aprendizaje y con muchas ganas de crecer
+                en el mundo del desarrollo web.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         TRAYECTORIA Y EDUCACIÓN
+    ========================== -->
+
+    <section id="trayectoria" class="trayectoria">
+
+        <div class="section-header">
+            <h2>Trayectoria y Educación</h2>
+        </div>
+
+        <div class="trayectoria-grid">
+
+            <div class="trayectoria-columna">
+
+                <h3 class="subtitulo-seccion">Experiencia Laboral</h3>
+
+                <article class="experiencia-card">
+
+                 <div class="card-icon">
+                    ✓
+                </div>
+
+        <h4>Gestor de grupos agricolas</h4>
+
+        <span class="fecha">Dic. 2020 - Actualmente</span>
+
+            <ul>
+                <li>Gestor de tareas de agricultura.</li>
+                <li>Trabajo en equipo, gestion de personal.</li>
+                <li>Experiencia en administracion.</li>
+            </ul>
+
+    </article>
+            <div class="trayectoria-columna">
+
+                <h3 class="subtitulo-seccion">Educación &amp; Cursos</h3>
+
+                <article class="educacion-card">
+                    <h4>Análisis y Desarrollo de Software (ADSO)</h4>
+                    <span class="fecha">2025 - 2027 | SENA CIDE Soacha</span>
+                    <p>Formación tecnológica en ingeniería de software y desarrollo web.</p>
+                </article>
+
+                <article class="educacion-card">
+                    <h4>Desarrollo de Habilidades Digitales</h4>
+                    <span class="fecha">2025 | CIDE Soacha</span>
+                    <p>Complementaria virtual en comunicación y colaboración en línea.</p>
+                </article>
+
+                <article class="educacion-card">
+                    <h4>Aplicación de la Ética en Contexto Laboral</h4>
+                    <span class="fecha">2026 | CIDE Soacha Ciudad Verde</span>
+                    <p>Curso especial en habilidades sociales y laborales.</p>
+                </article>
+
+                <article class="educacion-card">
+                    <h4>Técnico en Gestion administrativa</h4>
+                    <span class="fecha">2020 | SENA Virtual</span>
+                </article>
+
+                <article class="educacion-card">
+                    <h4>Bachiller</h4>
+                    <span class="fecha">2024 | Politectnico de cundinamarca</span>
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         HABILIDADES Y TECNOLOGÍAS
+    ========================== -->
+
+    <section id="habilidades" class="habilidades">
+
+        <div class="section-header">
+            <h2>Habilidades y Tecnologías</h2>
+        </div>
+
+        <div class="habilidades-grid">
+
+            <article class="habilidad-card">
+                <div class="habilidad-icon">&lt;/&gt;</div>
+
+                <h3>Desarrollo &amp; Lenguajes</h3>
+
+                <ul>
+                    <li>Java</li>
+                    <li>JavaScript</li>
+                    <li>HTML5 &amp; CSS3</li>
+                </ul>
+            </article>
+
+            <article class="habilidad-card">
+                <div class="habilidad-icon">▣</div>
+
+                <h3>Bases de Datos</h3>
+
+                <ul>
+                    <li>SQL (PostgreSQL, MySQL)</li>
+                    <li>NoSQL (MongoDB)</li>
+                </ul>
+            </article>
+
+            <article class="habilidad-card">
+                <div class="habilidad-icon">♧</div>
+
+                <h3>Habilidades Blandas</h3>
+
+                <ul>
+                    <li>Actitud positiva y responsabilidad</li>
+                    <li>Trabajo en equipo y colaboración</li>
+                    <li>Rápido aprendizaje y adaptación</li>
+                </ul>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         PROYECTOS
+    ========================== -->
+
+    <section id="proyectos" class="proyectos">
+
+        <div class="section-header">
+            <h2>Proyectos Destacados</h2>
+
+            <p>
+                Los proyectos creados por mí en la formación del curso de ADSO, con el fin de aprender y mejorar
+                mis habilidades en el desarrollo web.
+            </p>
+        </div>
+
+        <div class="proyectos-grid">
+
+            <article class="carta salvatore">
+
+                <h3>Proyecto "Salvatore"</h3>
+
+                <p>
+                    Un sistema de gestión de notas para una institución educativa.
+                </p>
+
+                <div class="carta__content">
+
+                    <h3 class="carta__title">Salvatore</h3>
+
+                    <p class="carta__description">
+                        Ayudamos a mejorar la experiencia de los estudiantes y docentes en la gestión de notas,
+                        con un sistema intuitivo y eficiente.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="carta calculadora">
+
+                <h3>Proyecto "Calculadora"</h3>
+
+                <p>
+                    Un sistema simple sobre una calculadora, para poder aprender mejor las estructuras de un proyecto
+                    web y su funcionamiento.
+                </p>
+
+                <div class="carta__content">
+
+                    <h3 class="carta__title">Calculadora</h3>
+
+                    <p class="carta__description">
+                        Con este proyecto aprendimos a crear la estructura necesaria para que un sistema funcione
+                        correctamente.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="carta relleno">
+
+                <h3>Proyecto "Relleno"</h3>
+
+                <p>
+                    No hay más proyectos creados, pero en un futuro se crearán más proyectos para poder mejorar
+                    mis habilidades y conocimientos en el desarrollo web.
+                </p>
+
+                <div class="carta__content">
+
+                    <h3 class="carta__title">Relleno</h3>
+
+                    <p class="carta__description">
+                        No hay más proyectos creados, pero en un futuro se crearán más proyectos para poder mejorar
+                        mis habilidades y conocimientos en el desarrollo web.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="carta relleno-2">
+
+                <h3>Proyecto "Relleno 2"</h3>
+
+                <p>
+                    No hay más proyectos creados, pero en un futuro se crearán más proyectos para poder mejorar
+                    mis habilidades y conocimientos en el desarrollo web.
+                </p>
+
+                <div class="carta__content">
+
+                    <h3 class="carta__title">Relleno 2</h3>
+
+                    <p class="carta__description">
+                        No hay más proyectos creados, pero en un futuro se crearán más proyectos para poder mejorar
+                        mis habilidades y conocimientos en el desarrollo web.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         CONTACTO / FOOTER
+    ========================== -->
+
+    <section id="contacto" class="contacto">
+
+        <h2>Contact</h2>
+
+        <p>
+            ¿Tienes un proyecto en mente? Hablemos.
+        </p>
+
+        <button class="animated-button">
+
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+
+            <span class="text">Contactame</span>
+
+            <span class="circle"></span>
+
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 18.3638L10.8076 19.778L16.1716 14.4142L4 14.4142V12.4142H16.1716Z"></path>
+            </svg>
+
+        </button>
+
+    </section>
+
+</main>
 
 </body>
-
 </html>
