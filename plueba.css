@@ -1,0 +1,21 @@
+/* From Uiverse.io by AatreyuShau */ 
+.island {
+  position: absolute;
+  opacity: 0.65;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  background: rgb(52, 65, 73);
+  filter: url(#octave1) brightness(20) contrast(1);
+}
+
+.islandt {
+  position: absolute;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  /* Add your background pattern here */
+  background: rgb(69, 73, 52);
+  filter: url(#octave2) brightness(20) contrast(1);
+}
